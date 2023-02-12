@@ -13,9 +13,13 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/ubuntu": "^4.5.11",
+    "formik": "^2.2.9",
     "framer-motion": "^8.0.2",
+    "immer": "^9.0.17",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "use-immer": "^0.8.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

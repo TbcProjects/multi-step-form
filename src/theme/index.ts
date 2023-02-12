@@ -8,6 +8,8 @@ import fontSizes from "./foundations/fontSizes";
 import layerStyles from "./foundations/layerStyles";
 import sizes from "./foundations/sizes";
 import textStyles from "./foundations/textStyles";
+import { FormErrorMessage } from "./components/ErrorMessage";
+import Button from "./components/Button";
 
 const overrides = {
   config,
@@ -19,7 +21,10 @@ const overrides = {
   layerStyles,
   sizes,
   textStyles,
-  components: {},
+  components: {
+    FormErrorMessage,
+    Button,
+  },
 };
 
 const appTheme = extendTheme(overrides);

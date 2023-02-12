@@ -1,0 +1,36 @@
+{
+  "plans": [
+    {
+      "title": "Arcade",
+      "icon": "joy-stick",
+      "cost": 9
+    },
+    {
+      "title": "Advanced",
+      "icon": "small-controller",
+      "cost": 12.99
+    },
+    {
+      "title": "Pro",
+      "icon": "large-controller",
+      "cost": 15
+    }
+  ],
+  "addOns": [
+    {
+      "title": "Online service",
+      "description": "Access to multiplayer games",
+      "cost": 1
+    },
+    {
+      "title": "Larger storage",
+      "description": "Extra 1TB of cloud save",
+      "cost": 2
+    },
+    {
+      "title": "Customizable profile",
+      "description": "Custom theme on your profile",
+      "cost": 2
+    }
+  ]
+}
