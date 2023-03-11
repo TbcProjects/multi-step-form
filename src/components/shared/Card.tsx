@@ -1,5 +1,5 @@
 import { Dispatch, ReactNode, useContext } from "react";
-import { Box, Card as FormCard, CardBody, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { DispatchContext, StateContext } from "../../utils/context";
 import { Actions, ActionType, State } from "../../types";
 /**
@@ -9,10 +9,16 @@ import { Actions, ActionType, State } from "../../types";
 type CardProps = {
   title: string;
   icon: ReactNode;
-  cost: number;
+  cost_monthly: number;
+  cost_yearly: number;
 };
 
-export default function Card({ title, icon, cost }: CardProps) {
+export default function Card({
+  title,
+  icon,
+  cost_monthly,
+  cost_yearly,
+}: CardProps) {
   const state = useContext(StateContext) as State;
   const dispatch = useContext(DispatchContext) as Dispatch<Actions>;
 
@@ -22,13 +28,14 @@ export default function Card({ title, icon, cost }: CardProps) {
   return (
     <Box
       layerStyle={layerStyles}
+      cursor="pointer"
       mb="12px"
       borderRadius="8px"
       key={title}
       onClick={() => {
         dispatch({
           type: ActionType.SET_PLAN,
-          payload: { title, icon, cost },
+          payload: { title, icon, cost_monthly, cost_yearly },
         });
       }}
     >
@@ -36,7 +43,7 @@ export default function Card({ title, icon, cost }: CardProps) {
         {icon}
         <Box ml="14px">
           <Text>{title}</Text>
-          <Text>${cost}/mo</Text>
+          <Text>${state.isYearly ? cost_monthly : cost_yearly}/mo</Text>
         </Box>
       </Box>
     </Box>

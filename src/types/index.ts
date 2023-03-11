@@ -9,7 +9,11 @@ export interface AppContextProviderProps {
 export enum ActionType {
   CREATE_PROFILE,
   NEXT_STEP,
+  BACK_STEP,
   SET_PLAN,
+  ADD_ADDON,
+  REMOVE_ADDON,
+  SET_IS_YEARLY,
 }
 
 export type CreateProfile = {
@@ -21,12 +25,37 @@ export type NextStep = {
   type: ActionType.NEXT_STEP;
 };
 
+export type BackStep = {
+  type: ActionType.BACK_STEP;
+};
+
 export type SetPlan = {
   type: ActionType.SET_PLAN;
   payload: SelectedPlan | {};
 };
 
-export type Actions = CreateProfile | SetPlan | NextStep;
+export type SetAddOns = {
+  type: ActionType.ADD_ADDON;
+  payload: SelectedAddOn | [];
+};
+
+export type RemoveAddOn = {
+  type: ActionType.REMOVE_ADDON;
+  payload: SelectedAddOn;
+};
+
+export type SetIsYearly = {
+  type: ActionType.SET_IS_YEARLY;
+};
+
+export type Actions =
+  | CreateProfile
+  | NextStep
+  | BackStep
+  | SetPlan
+  | SetAddOns
+  | RemoveAddOn
+  | SetIsYearly;
 
 export type Profile = {
   name: string;
@@ -37,23 +66,26 @@ export type Profile = {
 export type SelectedPlan = {
   title: string;
   icon: ReactNode;
-  cost: number;
+  cost_monthly: number;
+  cost_yearly: number;
 };
 
-export type AddOns = {
+export type SelectedAddOn = {
+  id: number;
   title: string;
   description: string;
-  cost: number;
+  cost_monthly: number;
+  cost_yearly: number;
 };
 
 export interface State {
   profile: Profile | {};
   selectedPlan: SelectedPlan | { [key: string]: string };
-  addOns: AddOns[] | [];
+  addOns: SelectedAddOn[] | [];
   summary: string[];
   currentStep: number;
   hasConfirmed: boolean;
-  isMonthly: boolean;
+  isYearly: boolean;
 }
 
 export type StateContextType = State | {};

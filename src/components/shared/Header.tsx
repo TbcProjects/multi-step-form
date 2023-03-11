@@ -5,7 +5,7 @@ type FormHeaderProps = {
   subHeading: string;
 };
 
-export default function FormHeader({ heading, subHeading }: FormHeaderProps) {
+export default function Header({ heading, subHeading }: FormHeaderProps) {
   return (
     <Box>
       <Text as="h2" fontWeight={"bold"} fontSize={"24px"} mb="9px">

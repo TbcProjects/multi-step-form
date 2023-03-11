@@ -1,14 +1,14 @@
 import { Dispatch, useContext } from "react";
 import { DispatchContext, StateContext } from "../../utils/context";
-import { Actions, ActionType, SelectedPlan, State } from "../../types";
+import { Actions, ActionType, State } from "../../types";
 
-import { isEmpty } from "../../utils/helpers";
+import { isEmpty, yearlyDiscount } from "../../utils/helpers";
 
 import content from "../../assets/content/data.json";
 
-import FormHeader from "../shared/Header";
+import Header from "../shared/Header";
 import Card from "../shared/Card";
-import Button from "../shared/Button";
+import Toggle from "../shared/Toggle";
 import AdvancedIcon from "../shared/icons/AdvancedIcon";
 import ArcadeIcon from "../shared/icons/ArcadeIcon";
 import ProIcon from "../shared/icons/ProIcon";
@@ -32,10 +32,15 @@ export default function PlanForm() {
   };
 
   const renderPlans = plans.map(plan => {
-    const { title, icon, cost } = plan;
-    // @TODO - add an id prop to plan data
+    const { title, icon, cost_monthly, cost_yearly } = plan;
     return (
-      <Card key={title} title={title} icon={renderIcon(icon)} cost={cost} />
+      <Card
+        key={title}
+        title={title}
+        icon={renderIcon(icon)}
+        cost_monthly={cost_monthly}
+        cost_yearly={cost_yearly}
+      />
     );
   });
 
@@ -49,13 +54,12 @@ export default function PlanForm() {
 
   return (
     <>
-      <FormHeader
+      <Header
         heading="Select your plan"
         subHeading="You have the option of monthly or yearly billing."
       />
       {renderPlans}
-
-      <Button label="NextStep" onClick={handleClick} variant="primary"></Button>
+      <Toggle />
     </>
   );
 }

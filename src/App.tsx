@@ -1,12 +1,15 @@
 import { AppContextProvider } from "./utils/context";
 import FormContainer from "./components/multiStepForm/FormContainer";
+import Layout from "./components/layout/Layout";
 
 import { Box } from "@chakra-ui/react";
 
 function App() {
   return (
     <AppContextProvider>
-      <FormContainer />
+      <Layout>
+        <FormContainer />
+      </Layout>
     </AppContextProvider>
   );
 }

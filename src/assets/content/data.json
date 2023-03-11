@@ -3,34 +3,43 @@
     {
       "title": "Arcade",
       "icon": "joy-stick",
-      "cost": 9
+      "cost_monthly": 9,
+      "cost_yearly": 90
     },
     {
       "title": "Advanced",
       "icon": "small-controller",
-      "cost": 12.99
+      "cost_monthly": 12,
+      "cost_yearly": 120
     },
     {
       "title": "Pro",
       "icon": "large-controller",
-      "cost": 15
+      "cost_monthly": 15,
+      "cost_yearly": 150
     }
   ],
   "addOns": [
     {
+      "id": 123123,
       "title": "Online service",
       "description": "Access to multiplayer games",
-      "cost": 1
+      "cost_monthly": 1,
+      "cost_yearly": 10
     },
     {
+      "id": 12412,
       "title": "Larger storage",
       "description": "Extra 1TB of cloud save",
-      "cost": 2
+      "cost_monthly": 2,
+      "cost_yearly": 20
     },
     {
+      "id": 4512,
       "title": "Customizable profile",
       "description": "Custom theme on your profile",
-      "cost": 2
+      "cost_monthly": 2,
+      "cost_yearly": 20
     }
   ]
 }
